@@ -24,12 +24,12 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(std::string error): error
 {
 }
 
-const char* Bureaucrat::GradeTooHighException::what() const
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return this->error.c_str();
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const
+const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return this->error.c_str();
 }
@@ -80,7 +80,7 @@ void Bureaucrat::signForm(Form & form)
 void Bureaucrat::executeForm(Form const & form)
 {
 	form.execute(*this);
-	std::cout << this->name << " executes " << form.getName();
+	std::cout << this->name << " executes " << form.getName() << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat)

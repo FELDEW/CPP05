@@ -1,7 +1,7 @@
 #include "PresidentialPardonForm.hpp"
 
 
-PresidentialPardonForm::PresidentialPardonForm(std::string const & target): target(target), Form("PresidentialPardonForm", 72, 45)
+PresidentialPardonForm::PresidentialPardonForm(std::string const & target): target(target), Form("PresidentialPardonForm", 25, 5)
 {
 
 }
@@ -9,7 +9,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 {
 
 }
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const& origin): target(origin.target), Form("PresidentialPardonForm", 145, 137)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const& origin): target(origin.target), Form("PresidentialPardonForm", 25, 5)
 {
 	*this = origin;
 }

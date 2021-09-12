@@ -4,6 +4,8 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 	protected:
@@ -18,7 +20,7 @@ class Form
 				std::string error;
 			public:
 				GradeTooHighException(std::string error);
-				const char* what() const;
+				const char* what() const throw();
 		};
 		class GradeTooLowException: public std::exception
 		{
@@ -26,7 +28,7 @@ class Form
 				std::string error;
 			public:
 				GradeTooLowException(std::string error);
-				const char* what() const;
+				const char* what() const throw();
 		};
 		Form(std::string const & name, int const grade_to_sign, int const grade_to_execute);
 		~Form();

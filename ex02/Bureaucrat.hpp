@@ -4,6 +4,8 @@
 #include <iostream>
 #include "Form.hpp"
 
+class Form;
+
 class Bureaucrat
 {
 	private:
@@ -26,7 +28,7 @@ class Bureaucrat
 				std::string error;
 			public:
 				GradeTooHighException(std::string error);
-				const char* what() const;
+				const char* what() const throw();
 		};
 		class GradeTooLowException: public std::exception
 		{
@@ -34,7 +36,7 @@ class Bureaucrat
 				std::string error;
 			public:
 				GradeTooLowException(std::string error);
-				const char* what() const;
+				const char* what() const throw();
 		};
 		Bureaucrat(std::string const & name, int const grade);
 		~Bureaucrat();

@@ -9,7 +9,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 {
 
 }
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const& origin): target(origin.target), Form("RobotomyRequestForm", 145, 137)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const& origin): target(origin.target), Form("RobotomyRequestForm", 72, 45)
 {
 	*this = origin;
 }
