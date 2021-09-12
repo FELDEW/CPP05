@@ -6,7 +6,7 @@
 
 class Form
 {
-	private:
+	protected:
 		std::string const name;
 		bool is_signed;
 		int const grade_to_sign;
@@ -37,6 +37,8 @@ class Form
 		int const getGrade_to_execute() const;
 		bool  const getIs_signed() const;
 		void beSigned(Bureaucrat const & bureaucrat);
+		void tryExecute(Bureaucrat const & bureaucrat) const;
+		virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream& operator<<(std::ostream& out, const Form& origin);
