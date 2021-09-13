@@ -38,6 +38,14 @@ class Bureaucrat
 				GradeTooLowException(std::string error);
 				const char* what() const throw();
 		};
+		class FormSignException: public std::exception
+		{
+			private:
+				std::string error;
+			public:
+				FormSignException(std::string error);
+				const char* what() const throw();
+		};
 		Bureaucrat(std::string const & name, int const grade);
 		~Bureaucrat();
 		Bureaucrat(Bureaucrat const& origin);
