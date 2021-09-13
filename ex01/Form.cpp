@@ -26,12 +26,12 @@ Form::GradeTooLowException::GradeTooLowException(std::string error): error(error
 {
 }
 
-const char* Form::GradeTooHighException::what() const
+const char* Form::GradeTooHighException::what() const throw()
 {
 	return this->error.c_str();
 }
 
-const char* Form::GradeTooLowException::what() const
+const char* Form::GradeTooLowException::what() const throw()
 {
 	return this->error.c_str();
 }
@@ -80,6 +80,6 @@ void Form::beSigned(Bureaucrat const & bureaucrat)
 
 std::ostream &operator<<(std::ostream &out, Form const &Form)
 {
-	out << "Form: " << Form.getName() << "is signed: " << Form.getIs_signed() ? "yes" : "no";
+	out << "Form: " << Form.getName() << " grade: " << Form.getGrade_to_sign() << " is signed: " << (Form.getIs_signed() ? "yes" : "no");
 	return (out);
 }

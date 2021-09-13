@@ -24,12 +24,12 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(std::string error): error
 {
 }
 
-const char* Bureaucrat::GradeTooHighException::what() const
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return this->error.c_str();
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const
+const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return this->error.c_str();
 }
@@ -69,7 +69,7 @@ void Bureaucrat::decrementGrade(void)
 void Bureaucrat::signForm(Form & form)
 {
 	if (form.getIs_signed())
-		std::cout << this->name << " cannot sign " << form.getName() << "because it's already signed!" << std::endl;
+		std::cout << this->name << " cannot sign " << form.getName() << " because it's already signed!" << std::endl;
 	else
 	{
 		form.beSigned(*this);

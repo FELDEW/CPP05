@@ -36,8 +36,8 @@ int main ()
 
 	try
 	{
-		Bureaucrat toolow("toolow", 0);
-		std::cout << toolow << std::endl;
+		Bureaucrat toohigh("toohigh", 0);
+		std::cout << toohigh << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -47,8 +47,8 @@ int main ()
 
 	try
 	{
-		Bureaucrat toohigh("toohigh", 151);
-		std::cout << toohigh << std::endl;
+		Bureaucrat toolow("toolow", 151);
+		std::cout << toolow << std::endl;
 	}
 	catch(const std::exception& e)
 	{
