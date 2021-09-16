@@ -29,6 +29,7 @@ class Bureaucrat
 			public:
 				GradeTooHighException(std::string error);
 				const char* what() const throw();
+				~GradeTooHighException() throw();
 		};
 		class GradeTooLowException: public std::exception
 		{
@@ -37,6 +38,7 @@ class Bureaucrat
 			public:
 				GradeTooLowException(std::string error);
 				const char* what() const throw();
+				~GradeTooLowException() throw();
 		};
 		class FormSignException: public std::exception
 		{
@@ -45,6 +47,7 @@ class Bureaucrat
 			public:
 				FormSignException(std::string error);
 				const char* what() const throw();
+				~FormSignException() throw();
 		};
 		Bureaucrat(std::string const & name, int const grade);
 		~Bureaucrat();

@@ -26,6 +26,14 @@ Form::GradeTooLowException::GradeTooLowException(std::string error): error(error
 {
 }
 
+Form::GradeTooHighException::~GradeTooHighException() throw()
+{
+}
+
+Form::GradeTooLowException::~GradeTooLowException() throw()
+{
+}
+
 const char* Form::GradeTooHighException::what() const throw()
 {
 	return this->error.c_str();
@@ -49,17 +57,17 @@ std::string const & Form::getName() const
 	return (this->name);
 }
 
-int const Form::getGrade_to_sign() const
+int Form::getGrade_to_sign() const
 {
 	return (this->grade_to_sign);
 }
 
-int  const Form::getGrade_to_execute() const
+int Form::getGrade_to_execute() const
 {
 	return (this->grade_to_execute);
 }
 
-bool const Form::getIs_signed() const
+bool Form::getIs_signed() const
 {
 	return (this->is_signed);
 }

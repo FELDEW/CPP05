@@ -28,6 +28,18 @@ Bureaucrat::FormSignException::FormSignException(std::string error): error(error
 {
 }
 
+Bureaucrat::GradeTooHighException::~GradeTooHighException() throw()
+{
+}
+
+Bureaucrat::GradeTooLowException::~GradeTooLowException() throw()
+{
+}
+
+Bureaucrat::FormSignException::~FormSignException() throw()
+{
+}
+
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return this->error.c_str();
