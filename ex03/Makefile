@@ -1,36 +1,37 @@
-NAME		=	bureaucrat
+NAME = a.out
 
-SRCS		=	./main.cpp \
-				./Bureaucrat.cpp \
-				./Form.cpp \
-				./PresidentialPardonForm.cpp \
-				./RobotomyRequestForm.cpp \
-				./ShrubberyCreationForm.cpp \
-				./Intern.cpp
-	
-OBJS		=	$(SRCS:.cpp=.o)
+SRCS = ./main.cpp ./Bureaucrat.cpp ./Form.cpp ./PresidentialPardonForm.cpp ./RobotomyRequestForm.cpp ./ShrubberyCreationForm.cpp ./Intern.cpp
 
-CPP			=	clang++
+HEADER = ./Bureaucrat.hpp ./Form.hpp ./PresidentialPardonForm.hpp ./RobotomyRequestForm.hpp ./ShrubberyCreationForm.hpp
 
-%.o:		%.cpp 
-			$(CPP)   -c $< -o $(<:.cpp=.o)
+OBJS = $(SRCS:%.cpp=%.o)
 
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+DEPENDS = $(OBJS:%.o=%.d)
 
-RM			=	rm -f
+CLANG =     clang++
 
-all :		$(NAME)
+CPPFLAGS =  -Wall -Wextra -Werror -std=c++98 -I.
 
-$(NAME) :	$(OBJS)
-			$(CPP) $(CFLAGS) -o $(NAME) $(OBJS) -I.
-			@echo "bureaucrat"
+RM =        rm -f
 
-clean :		
+all :       ${NAME}
+
+$(NAME) :   $(OBJS) 
+			$(CLANG) $(CPPFLAGS) $(OBJS) -o $@
+
+%.o:  %.cpp $(HEADER)
+			${CLANG} $(CPPFLAGS) -MMD -o $@ -c $<
+
+-include	$(DEPENDS)
+
+clean :     
 			$(RM) $(OBJS)
+			$(RM) $(DEPENDS)
 
-fclean 	:	clean
-			$(RM) $(NAME)
 
-re :		fclean all
+fclean  :   clean
+			$(RM) ${NAME}
 
-.PHONY :	all clean fclean re
+re :        fclean all
+
+.PHONY :    all clean fclean re

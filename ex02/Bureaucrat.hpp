@@ -12,16 +12,6 @@ class Bureaucrat
 		std::string const name;
 		int grade;
 	public:
-	/*
-		class GradeTooHighException: public std::exception
-		{
-			virtual const char* what() const throw();
-		};
-		class GradeTooLowException: public std::exception
-		{
-			virtual const char* what() const throw();
-		};
-		*/
 		class GradeTooHighException: public std::exception
 		{
 			private:

@@ -1,7 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const & target): target(target), Form("RobotomyRequestForm", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string const & target): Form("RobotomyRequestForm", 72, 45), target(target)
 {
 
 }
@@ -9,12 +9,15 @@ RobotomyRequestForm::~RobotomyRequestForm()
 {
 
 }
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const& origin): target(origin.target), Form("RobotomyRequestForm", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const& origin): Form("RobotomyRequestForm", 72, 45), target(origin.target)
 {
 	*this = origin;
 }
 RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const& origin)
 {
+	if (this == &origin)
+		return (*this);
+	this->is_signed = origin.is_signed;
 	return (*this);
 }
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
